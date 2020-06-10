@@ -1,10 +1,10 @@
 import { getInitialData } from '../utils/API';
-import setAuthUser from './authUser';
-import receiveUsers from './users';
-import receiveQuestions from './questions';
+// import setAuthUser from './authUser';
+import { receiveUsers } from './users';
+import { receiveQuestions } from './questions';
 
 // Thunk Action creator...
-export default function handleInitailData() {
+export function handleInitailData() {
     return (dispatch) => {
         return getInitialData()
                 .then(({users, questions}) => {
