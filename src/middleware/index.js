@@ -1,5 +1,5 @@
 import logger from './logger';
-import thunk from 'react-redux';
+import thunk from 'redux-thunk';
 import { applyMiddleware } from 'redux';
 
 export default applyMiddleware(
