@@ -1,7 +1,7 @@
 import { getInitialData } from '../utils/API';
 import setAuthUser from './authUser';
-import setUsers from './users';
-import setQuestions from './questions';
+import receiveUsers from './users';
+import receiveQuestions from './questions';
 
 // Thunk Action creator...
 export default function handleInitailData() {
@@ -9,8 +9,8 @@ export default function handleInitailData() {
         return getInitialData()
                 .then(({users, questions}) => {
                     // get users and questions and adding them to the Redux store...
-                    dispatch(setUsers(users));
-                    dispatch(setQuestions(questions));
+                    dispatch(receiveUsers(users));
+                    dispatch(receiveQuestions(questions));
                 })
     }
 }
