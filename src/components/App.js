@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import logo from './logo.svg';
 // import './App.css';
 import LoginPage from './Login';
+import Home from './Home';
 import { connect } from 'react-redux';
 import { handleInitailData } from '../actions/shared';
 
@@ -20,7 +21,7 @@ class App extends Component {
         {
           authUser === null
            ? (<LoginPage />)
-           : (<div>User successfully logged in.</div>)
+           : (<Home />)
         }
       </div>
     );
