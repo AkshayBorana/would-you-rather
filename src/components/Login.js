@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { setAuthUser } from '../actions/authUser';
 
 class LoginPage extends Component {
 
@@ -16,12 +17,12 @@ class LoginPage extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state.value);
+        this.props.dispatch(setAuthUser(this.state.value))
     }
 
     render() {
 
-        const {users} = this.props;
+        const { users } = this.props;
 
         return(
             <div>
