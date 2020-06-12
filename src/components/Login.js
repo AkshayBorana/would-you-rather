@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setAuthUser } from '../actions/authUser';
+import { loginUser } from '../actions/authUser';
 
 class LoginPage extends Component {
 
@@ -17,7 +17,7 @@ class LoginPage extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.dispatch(setAuthUser(this.state.value))
+        this.props.dispatch(loginUser(this.state.value))
     }
 
     render() {
