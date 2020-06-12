@@ -12,13 +12,26 @@ class App extends Component {
   }
 
   render() {
+
+    const { authUser } = this.props;
+
     return (
       <div className="App">
-        <LoginPage />
+        {
+          authUser === null
+           ? (<LoginPage />)
+           : (<div>User successfully logged in.</div>)
+        }
       </div>
     );
   }
 
 }
 
-export default connect()(App);
+const mapStateToProps = ({authUser}) => {
+  return {
+    authUser
+  }
+}
+
+export default connect(mapStateToProps)(App);
