@@ -1,11 +1,53 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class LoginPage extends Component {
+
+    state = {
+        value: ''
+    }
+
+    handleChange = (e) => {
+        const value = e.target.value;
+        this.setState(() => ({
+            value
+        }))
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(this.state.value);
+    }
+
     render() {
+
+        const {users} = this.props;
+
         return(
-            <div>Login Page</div>
+            <div>
+                <h3>Would You Rather Game</h3>
+                <p>Please select a user to login...</p>
+                <form onSubmit={this.handleSubmit}>
+                    <select value={this.state.value} onChange={this.handleChange}>
+                        {
+                            users.map((user) => {
+                                return (
+                                    <option key={user.id} value={user.id}>{user.name}</option>
+                                )
+                            })
+                        }
+                    </select>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
         )
     }
 }
 
-export default LoginPage;
+const mapStateToProps = ({users}) => {
+    return {
+        users: Object.values(users)
+    }
+}
+
+export default connect(mapStateToProps)(LoginPage);
