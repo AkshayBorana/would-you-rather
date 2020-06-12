@@ -23,6 +23,7 @@ class LoginPage extends Component {
     render() {
 
         const { users } = this.props;
+        const disabled = this.state.value === '' ? true : false;
 
         return(
             <div>
@@ -38,7 +39,7 @@ class LoginPage extends Component {
                             })
                         }
                     </select>
-                    <button type="submit">Login</button>
+                    <button type="submit" disabled={disabled}>Login</button>
                 </form>
             </div>
         )
