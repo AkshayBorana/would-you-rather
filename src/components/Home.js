@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loginUser } from '../actions/authUser';
 import QuestionsCard from './QuestionsCard';
+import LeaderBoard from './LeaderBoard';
 
 class Home extends Component {
 
@@ -56,6 +57,8 @@ class Home extends Component {
                         }
                     </ul>
                 </div>
+
+                <LeaderBoard />
             </div>
         )
     }
