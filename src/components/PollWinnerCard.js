@@ -12,7 +12,7 @@ const PollWinnerCard = (props) => {
             </div>
 
             <div>
-                <p>{topUser.author}</p>
+                <p>{topUser.name}</p>
                 <p>Answered Questions: {topUser.questionsAsked}</p>
                 <p>Questions Aksed: {topUser.questionsAnswered}</p>
                 <p>Total score: {topUser.totalCount}</p>
