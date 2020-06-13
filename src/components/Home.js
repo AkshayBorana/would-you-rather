@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { loginUser } from '../actions/authUser';
 import QuestionsCard from './QuestionsCard';
 import LeaderBoard from './LeaderBoard';
+import NewPoll from './NewPoll';
 
 class Home extends Component {
 
@@ -58,7 +59,17 @@ class Home extends Component {
                     </ul>
                 </div>
 
+                {/* Leader board.................................... */}
+
                 <LeaderBoard />
+
+
+                {/* New poll................................. */}
+
+                <h2>New Poll</h2>
+                <NewPoll />
+
+
             </div>
         )
     }
