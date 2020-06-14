@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loginUser } from '../actions/authUser';
+// import { loginUser } from '../actions/authUser';
 import QuestionsCard from './QuestionsCard';
-import LeaderBoard from './LeaderBoard';
-import NewPoll from './NewPoll';
+import Nav from './Nav';
 
 class Home extends Component {
 
@@ -11,17 +10,13 @@ class Home extends Component {
         questionType: 'unanswered'
     }
 
-    logout = () => {
-        this.props.dispatch(loginUser(null))
-    }
-
     render() {
 
         const { unansweredQIds, answeredQIds }  = this.props;
-        // const { questionType } = this.state;
 
         return (
             <div>
+                <Nav />
                 <div className="unanswered-qestion">
                     <h3>Unanswered Questions</h3>
                     <ul>
@@ -58,18 +53,6 @@ class Home extends Component {
                         }
                     </ul>
                 </div>
-
-                {/* Leader board.................................... */}
-
-                <LeaderBoard />
-
-
-                {/* New poll................................. */}
-
-                <h2>New Poll</h2>
-                <NewPoll />
-
-
             </div>
         )
     }
@@ -89,12 +72,6 @@ const mapStateToProps = ({authUser, users, questions}) => {
         authUser,
         answeredQIds,
         unansweredQIds
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        logout: () => dispatch
     }
 }
 
