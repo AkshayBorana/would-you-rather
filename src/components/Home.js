@@ -2,56 +2,70 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { loginUser } from '../actions/authUser';
 import QuestionsCard from './QuestionsCard';
-import Nav from './Nav';
+// import Nav from './Nav';
 
 class Home extends Component {
 
     state = {
-        questionType: 'unanswered'
+        isQuestion: true
+    }
+
+    displayQuestions = () => {
+        this.setState(() => ({
+            isQuestion: !this.state.isQuestion
+        }))
     }
 
     render() {
 
         const { unansweredQIds, answeredQIds }  = this.props;
+        const { isQuestion } = this.state;
 
         return (
             <div>
-                <Nav />
-                <div className="unanswered-qestion">
-                    <h3>Unanswered Questions</h3>
-                    <ul>
-                        {
-                            unansweredQIds &&
-                            unansweredQIds.map(question => {
-                                return (
-                                    <li key={question.id}>
-                                        <QuestionsCard
-                                         question={question}
-                                         questionType='unanswered'
-                                        />
-                                    </li>
-                                )
-                            })
-                        }
-                    </ul>
-                </div>
-                <div className="answered-qestion">
-                    <h3>Answered Questions</h3>
-                    <ul>
-                        {
-                            answeredQIds &&
-                            answeredQIds.map(question => {
-                                return (
-                                    <li key={question.id}>
-                                        <QuestionsCard
-                                         question={question}
-                                         questionType='answered'
-                                        />
-                                    </li>
-                                )
-                            })
-                        }
-                    </ul>
+                {/* <Nav /> */}
+                <div className="qestion">
+                    <button className="ques-btn" onClick={this.displayQuestions}>Unanswered Questions</button>
+                    <button className="ques-btn" onClick={this.displayQuestions}>Answered Questions</button>
+
+                    {
+                        isQuestion ?
+                            (
+                                <ul className="answer-questions">
+                                {
+                                    unansweredQIds &&
+                                    unansweredQIds.map(question => {
+                                        return (
+                                            <li className="question-list" key={question.id}>
+                                                <QuestionsCard
+                                                 question={question}
+                                                 isQuestion={isQuestion}
+                                                />
+                                            </li>
+                                        )
+                                    })
+                                }
+                                </ul>
+                            )
+                            :
+                            (
+                                <ul className="questions-answered">
+                                {
+                                    answeredQIds &&
+                                    answeredQIds.map(question => {
+                                        return (
+                                            <li key={question.id}>
+                                                <QuestionsCard
+                                                 question={question}
+                                                 isQuestion={isQuestion}
+                                                />
+                                            </li>
+                                        )
+                                    })
+                                }
+                            </ul>
+                            )
+                    }
                 </div>
             </div>
         )

@@ -6,6 +6,9 @@ import { handleInitailData } from '../actions/shared';
 import LeaderBoard from './LeaderBoard';
 import NewPoll from './NewPoll';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Nav from './Nav';
+import '../../src/App.css';
+import AnswerPoll from './AnswerPoll';
 
 class App extends Component {
 
@@ -25,9 +28,11 @@ class App extends Component {
             ? (<LoginPage />)
             : (
               <div>
+                <Nav />
                 <Route path="/" exact component={Home} />
-                <Route path="/newPoll" component={NewPoll}/>
-                <Route path="/leaderBoard" component={LeaderBoard}/>
+                <Route path="/add" exact component={NewPoll}/>
+                <Route path="/leaderBoard" exact component={LeaderBoard}/>
+                <Route path="/questions/:id" exact component={AnswerPoll}/>
               </div>
             )
           }

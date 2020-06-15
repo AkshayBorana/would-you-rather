@@ -17,24 +17,24 @@ class Nav extends Component {
         return (
             <nav className="nav">
                 <ul>
-                    <li>
+                    <li className="nav-link">
                         <NavLink to="/" exact activeClassName="active">
                             Home
                         </NavLink>
                     </li>
-                    <li>
-                        <NavLink to="/newPoll" activeClassName="active">
+                    <li className="nav-link">
+                        <NavLink to="/add" activeClassName="active">
                             New Poll
                         </NavLink>
                     </li>
-                    <li>
+                    <li className="nav-link">
                         <NavLink to="/leaderBoard" activeClassName="active">
                             Loader Board
                         </NavLink>
                     </li>
-                    <li>
+                    <li className="nav-link">
                         <div>
-                            {user && (user.map(u => (<p key={u.id}>{u.name}</p>)))}
+                            {user && (user.map(u => (<p className="nav-user-name" key={u.id}>{u.name}</p>)))}
                             <button onClick={this.logout}>Logout</button>
                         </div>
                     </li>
