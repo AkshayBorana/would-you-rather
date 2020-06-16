@@ -30,10 +30,12 @@ export function addAnswerQuestion(authUser, qid, answer) {
 
 export function handleSaveQuestion(optionOne, optionTwo, authUser) {
    return (dispatch) => {
-      return saveQuestion({optionOne, optionTwo, authUser})
+      return saveQuestion({
+         optionOneText: optionOne,
+         optionTwoText: optionTwo,
+         author: authUser})
                .then(question => {
                   dispatch(addQuestion(question));
-                  // dispatch(addUsersQuestion(res));
                })
    }
 }

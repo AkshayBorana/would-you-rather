@@ -18,9 +18,9 @@ class NewPoll extends Component {
 
     handleSubmit = (e) => {
         const { optionOne, optionTwo } = this.state;
-        const { authUser, handleSaveQuestion } = this.props;
+        const { authUser, dispatch } = this.props;
         e.preventDefault();
-        handleSaveQuestion(optionOne, optionTwo, authUser);
+        dispatch(handleSaveQuestion(optionOne, optionTwo, authUser));
         this.setState(() => ({
             optionOne: '',
             optionTwo: ''
@@ -63,12 +63,4 @@ const mapStateToProps = ({authUser}) => {
     }
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         addAQuestion: (optionOne, optionTwo, authUser) => {
-//             dispatch(handleSaveQuestion(optionOne, optionTwo, authUser));
-//         }
-//     }
-// }
-
-export default connect(mapStateToProps, {handleSaveQuestion})(NewPoll);
+export default connect(mapStateToProps)(NewPoll);
