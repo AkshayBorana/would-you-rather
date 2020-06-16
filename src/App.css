@@ -63,6 +63,11 @@ a {
 }
 
 /* questions- cards... */
+.icon {
+  width: 70px;
+  height: 70px;
+}
+
 .question-card-name {
   text-align: left;
 }
@@ -106,6 +111,16 @@ a {
 .nav-user-name {
   display: inline-block;
   padding: 0 10px;
+}
+
+.nav-user-icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px
+}
+
+.nav-user-title {
+  display: inline-block;
 }
 
 /* Answer poll page*/

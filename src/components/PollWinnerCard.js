@@ -7,11 +7,12 @@ const PollWinnerCard = (props) => {
     return (
         <div>
             <div>
-                {/* <img  src="" alt="image not found"> </img> */}
+                <img className="icon" src={topUser.avatarURL} alt="not found">
+                </img>
             </div>
 
             <div>
-                <p>{topUser.name}</p>
+                <h4>{topUser.name}</h4>
                 <p>Answered Questions: {topUser.questionsAsked}</p>
                 <p>Questions Aksed: {topUser.questionsAnswered}</p>
                 <p>Total score: {topUser.totalCount}</p>

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class QuestionsCard extends Component {
     render () {
 
-        const { question, isQuestion } = this.props;
+        const { question, isQuestion, users } = this.props;
         const btnText = isQuestion === true ? 'Answer Poll' : 'Results';
 
         return(
@@ -12,7 +13,7 @@ class QuestionsCard extends Component {
                 <h3 className="question-card-name">{question.author} asks:</h3>
                 <div className="question-card-detail">
                     <div className="user-icon">
-                        <img src="" alt="not found">
+                        <img className="icon" src={users[question.author].avatarURL} alt="not found">
                         </img>
                     </div>
 
@@ -36,4 +37,10 @@ class QuestionsCard extends Component {
     }
 }
 
-export default QuestionsCard;
+const mapStateToProps = ({ users }) => {
+    return {
+        users
+    }
+}
+
+export default connect(mapStateToProps)(QuestionsCard);

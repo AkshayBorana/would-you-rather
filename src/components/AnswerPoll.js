@@ -55,10 +55,11 @@ class AnswerPoll extends Component {
                         question.map(q => {
                             return (
                                 <div key={q.id}>
-                                    <p>{q.author} asks</p>
+                                    <h3>{q.author} asks</h3>
                                     <div>
                                         <div>
-                                            {/* <img /> */}
+                                        <img className="icon" src={users[q.author].avatarURL} alt="not found">
+                                        </img>{/* <img /> */}
                                         </div>
                                         <div>
                                             <p>Would you rather</p>
@@ -100,7 +101,8 @@ class AnswerPoll extends Component {
                                 <div className="results-card">
                                     <h3 className="results-card-auth">{Result.author} aksk</h3>
                                     <div>
-                                                {/* <img></img> */}
+                                        <img className="icon" src={users[Result.author].avatarURL} alt="not found">
+                                        </img>
                                     </div>
                                     <div>
                                         <p>Results</p>

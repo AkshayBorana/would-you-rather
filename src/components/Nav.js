@@ -34,7 +34,14 @@ class Nav extends Component {
                     </li>
                     <li className="nav-link">
                         <div>
-                            {user && (user.map(u => (<p className="nav-user-name" key={u.id}>{u.name}</p>)))}
+                            {user && (user.map(u => (
+                                <div key={u.id} className="nav-user-name">
+                                    <img className="nav-user-icon" src={u.avatarURL}></img>
+                                    <p className="nav-user-title">{u.name}</p>
+                                </div>
+
+
+                            )))}
                             <button onClick={this.logout}>Logout</button>
                         </div>
                     </li>
