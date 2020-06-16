@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Nav from './Nav';
 import '../../src/App.css';
 import AnswerPoll from './AnswerPoll';
+import NotFound from './NotFound';
 
 class App extends Component {
 
@@ -33,6 +34,7 @@ class App extends Component {
                 <Route path="/add" exact component={NewPoll}/>
                 <Route path="/leaderBoard" exact component={LeaderBoard}/>
                 <Route path="/questions/:id" exact render={(props) => <AnswerPoll {...props}/>}/>
+                <Route component={NotFound} />
               </div>
             )
           }
