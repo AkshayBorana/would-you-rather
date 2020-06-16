@@ -23,7 +23,9 @@ class QuestionsCard extends Component {
                         <Link
                          to={{
                             pathname:`/questions/${question.id}`,
-                            state: { questionDetails: question}
+                            state: {
+                                isQuestion
+                            }
                          }}>
                             <button>{btnText}</button>
                         </Link>

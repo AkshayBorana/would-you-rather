@@ -54,7 +54,7 @@ class Home extends Component {
                                     answeredQIds &&
                                     answeredQIds.map(question => {
                                         return (
-                                            <li key={question.id}>
+                                            <li className="question-list" key={question.id}>
                                                 <QuestionsCard
                                                  question={question}
                                                  isQuestion={isQuestion}

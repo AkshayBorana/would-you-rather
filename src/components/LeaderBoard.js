@@ -9,12 +9,13 @@ class LeaderBoard extends Component {
 
         return(
             <div>
-                <ul>
+                <h3>Leader Board</h3>
+                <ul className="leaderboard-card">
                     {
                        topUsers && (
                         topUsers.map((topUser) => {
                             return (
-                                <li key={topUser.id}>
+                                <li className="leaderboard-card-list" key={topUser.id}>
                                     <PollWinnerCard topUser={topUser}/>
                                 </li>
                             )

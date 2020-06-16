@@ -45,6 +45,10 @@ button {
   cursor: pointer;
 }
 
+a {
+  text-decoration: none;
+}
+
 /*  */
 /* Home page... */
 .ques-btn{
@@ -54,6 +58,8 @@ button {
 
 .question-list {
   margin: 30px 0px;
+  border: 1px solid gray;
+  padding: 10px;
 }
 
 /* questions- cards... */
@@ -81,7 +87,14 @@ button {
   width: 400px;
   margin: auto;
   padding: 0px;
+  margin-top: 20px;
 }
+/*
+.question-card {
+  border: 1px solid gray;
+  padding: 10px;
+  margin-bottom: 20px;
+} */
 
 /* Style for Navigation bar.. */
 
@@ -93,4 +106,41 @@ button {
 .nav-user-name {
   display: inline-block;
   padding: 0 10px;
+}
+
+/* Answer poll page*/
+.results-card {
+  border: 1px solid gray;
+}
+
+.result-details {
+  position: relative;
+  margin: 30px;
+}
+
+.results-card-auth {
+  text-align: left;
+  margin-left: 10px;
+}
+
+.winner-text {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+}
+
+.answer-poll-card {
+  width: 400px;
+  margin: auto;
+}
+
+/* Laeader Board */
+.leaderboard-card {
+  width: 400px;
+  margin: auto;
+}
+
+.leaderboard-card-list {
+  border: 1px solid gray;
+  margin-bottom: 40px;
 }

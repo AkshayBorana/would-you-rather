@@ -6,7 +6,6 @@ const PollWinnerCard = (props) => {
 
     return (
         <div>
-            <p>Leader Board</p>
             <div>
                 {/* <img  src="" alt="image not found"> </img> */}
             </div>
