@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { handleSaveQuestionsAnswer } from '../actions/users';
 
 class AnswerPoll extends Component {
 
@@ -8,15 +9,18 @@ class AnswerPoll extends Component {
     }
 
     handleCheckbox = (e) => {
-        console.log(e.target.value)
         const { value } = e.target;
         this.setState(() => ({
             option: value
         }))
     }
 
-    handleSubmit = (e) => {
+    handleSubmit = (e, questionId) => {
+        const { dispatch, authUser } = this.props;
+        const { option } = this.state;
         e.preventDefault();
+        dispatch(handleSaveQuestionsAnswer(authUser, questionId, option));
+
     }
 
     render () {
@@ -25,6 +29,11 @@ class AnswerPoll extends Component {
         const { id } = this.props.match.params;
         const question = Object.values(questions).filter(q => q.id === id);
         const disabled = this.state.option === '' ? true : false;
+        // const userAnsweredQuestion = Object.values(users).filter(user => {
+        //     if(user.answers) {
+        //         user.answers.hasOwnProperty(id)
+        //     }
+        // })
 
         return (
             <div>
@@ -39,7 +48,7 @@ class AnswerPoll extends Component {
                                     </div>
                                     <div>
                                         <p>Would you rather</p>
-                                        <form onSubmit={this.handleSubmit}>
+                                        <form onSubmit={(e) => this.handleSubmit(e, q.id)}>
                                             <label>
                                                 <input
                                                 type="radio"

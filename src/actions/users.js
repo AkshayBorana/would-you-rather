@@ -1,5 +1,9 @@
+import { addAnswerQuestion } from "./questions";
+// import { saveQuestion } from "../utils/API";
+import { _saveQuestionAnswer } from "../utils/_DATA";
+
 export const RECEIVE_USERS = 'RECEIVE_USERS';
-// export const ADD_USERS_QUESTION = 'ADD_USERS_QUESTION';
+export const ADD_ANSWER_USER = 'ADD_ANSWER_USER';
 
 export function receiveUsers(users) {
     return {
@@ -8,10 +12,24 @@ export function receiveUsers(users) {
     }
 }
 
-// export function addUsersQuestion({id, user}) {
-//     return {
-//         type: ADD_USERS_QUESTION,
-//         id,
-//         user
-//     }
-// }
+export function addAnswerUser(authUser, qid, answer) {
+    return {
+        type: ADD_ANSWER_USER,
+        authUser,
+        qid,
+        answer
+    }
+}
+
+export function handleSaveQuestionsAnswer(authUser, qid, answer) {
+    return (dispatch) => {
+        return _saveQuestionAnswer({
+            authedUser: authUser,
+            qid,
+            answer})
+            .then(() => {
+                dispatch(addAnswerUser(authUser, qid, answer));
+                dispatch(addAnswerQuestion(authUser, qid, answer));
+            })
+    }
+}
