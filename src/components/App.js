@@ -32,7 +32,7 @@ class App extends Component {
                 <Route path="/" exact component={Home} />
                 <Route path="/add" exact component={NewPoll}/>
                 <Route path="/leaderBoard" exact component={LeaderBoard}/>
-                <Route path="/questions/:id" exact component={AnswerPoll}/>
+                <Route path="/questions/:id" exact render={(props) => <AnswerPoll {...props}/>}/>
               </div>
             )
           }

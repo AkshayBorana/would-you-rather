@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { handleSaveQuestion } from '../actions/questions';
+import { connect }  from 'react-redux';
 
 class NewPoll extends Component {
 
@@ -15,7 +17,10 @@ class NewPoll extends Component {
     }
 
     handleSubmit = (e) => {
+        const { optionOne, optionTwo } = this.state;
+        const { authUser, handleSaveQuestion } = this.props;
         e.preventDefault();
+        handleSaveQuestion(optionOne, optionTwo, authUser);
         this.setState(() => ({
             optionOne: '',
             optionTwo: ''
@@ -52,4 +57,18 @@ class NewPoll extends Component {
     }
 }
 
-export default NewPoll;
+const mapStateToProps = ({authUser}) => {
+    return {
+        authUser
+    }
+}
+
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         addAQuestion: (optionOne, optionTwo, authUser) => {
+//             dispatch(handleSaveQuestion(optionOne, optionTwo, authUser));
+//         }
+//     }
+// }
+
+export default connect(mapStateToProps, {handleSaveQuestion})(NewPoll);
