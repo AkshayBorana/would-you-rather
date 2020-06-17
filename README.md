@@ -7,7 +7,7 @@ This is the 2nd main project of Udacity's Nanodegree program, to build a Would y
 
 A user can login the game and answer polls of the format Would you rather select option A or option B. Or create a new poll.
 
-##Features
+## Features
 
 - Login and Logout functionality
 - Dashboard to see polls list
