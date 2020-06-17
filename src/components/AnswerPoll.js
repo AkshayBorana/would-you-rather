@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { handleSaveQuestionsAnswer } from '../actions/users';
+import NotFound from './NotFound';
 
 class AnswerPoll extends Component {
 
@@ -27,6 +28,8 @@ class AnswerPoll extends Component {
 
         const { questions, authUser, users } = this.props;
         const { id } = this.props.match.params;
+        if(!Object.keys(questions).includes(id)) return (<NotFound />)
+
         const question = Object.values(questions).filter(q => q.id === id);
         const disabled = this.state.option === '' ? true : false;
 
