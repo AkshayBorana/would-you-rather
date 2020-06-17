@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-class QuestionsCard extends Component {
-    render () {
+const QuestionsCard = (props) => {
 
-        const { question, isQuestion, users } = this.props;
+        const { question, isQuestion, users } = props;
         const btnText = isQuestion === true ? 'Answer Poll' : 'Results';
 
         return(
@@ -21,20 +20,18 @@ class QuestionsCard extends Component {
                         <p>Would you rather</p>
                         <p>{question.optionOne.text}</p>
                         <p>or...</p>
-                        <Link
+                        <Link className="questions-card-btn"
                          to={{
                             pathname:`/questions/${question.id}`,
                             state: {
                                 isQuestion
                             }
-                         }}>
-                            <button>{btnText}</button>
+                         }}>{btnText}
                         </Link>
                     </div>
                 </div>
             </div>
         )
-    }
 }
 
 const mapStateToProps = ({ users }) => {

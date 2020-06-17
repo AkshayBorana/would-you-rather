@@ -94,12 +94,13 @@ a {
   padding: 0px;
   margin-top: 20px;
 }
-/*
-.question-card {
+
+.questions-card-btn {
   border: 1px solid gray;
-  padding: 10px;
-  margin-bottom: 20px;
-} */
+  padding: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
 /* Style for Navigation bar.. */
 
