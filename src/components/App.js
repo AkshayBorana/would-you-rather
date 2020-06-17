@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { handleInitailData } from '../actions/shared';
 import LeaderBoard from './LeaderBoard';
 import NewPoll from './NewPoll';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Nav from './Nav';
 import '../../src/App.css';
 import AnswerPoll from './AnswerPoll';
@@ -30,11 +30,13 @@ class App extends Component {
             : (
               <div>
                 <Nav />
+                <Switch>
                 <Route path="/" exact component={Home} />
                 <Route path="/add" exact component={NewPoll}/>
                 <Route path="/leaderBoard" exact component={LeaderBoard}/>
                 <Route path="/questions/:id" exact render={(props) => <AnswerPoll {...props}/>}/>
                 <Route component={NotFound} />
+                </Switch>
               </div>
             )
           }

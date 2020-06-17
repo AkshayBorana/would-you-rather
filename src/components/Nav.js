@@ -36,7 +36,7 @@ class Nav extends Component {
                         <div>
                             {user && (user.map(u => (
                                 <div key={u.id} className="nav-user-name">
-                                    <img className="nav-user-icon" src={u.avatarURL}></img>
+                                    <img className="nav-user-icon" src={u.avatarURL} alt="not found"></img>
                                     <p className="nav-user-title">{u.name}</p>
                                 </div>
 
