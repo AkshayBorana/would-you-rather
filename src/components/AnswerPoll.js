@@ -128,14 +128,14 @@ class AnswerPoll extends Component {
                                                 </div>
                                                     <div className="result-details">
                                                         <p>{Result.optionTwo.text}</p>
-                                                        <p>No of Votes: {optionOneVotes}</p>
+                                                        <p>No of Votes: {optionTwoVotes}</p>
                                                         {
                                                             Result.optionTwo.votes.includes(authUser) && (
                                                                 <span className='winner-text'>Your Vote</span>
                                                             )
                                                         }
                                                         <p>Votes acquired: {
-                                                            Math.floor(((optionOneVotes / totalVotes) * 100).toFixed(2))
+                                                            Math.floor(((optionTwoVotes / totalVotes) * 100).toFixed(2))
                                                             } %
                                                         </p>
                                                     </div>
