@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { handleSaveQuestion } from '../actions/questions';
 import { connect }  from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 class NewPoll extends Component {
 
     state = {
         optionOne: '',
-        optionTwo: ''
+        optionTwo: '',
+        redirect: false
     }
 
     handleChange = (e) => {
@@ -23,12 +25,16 @@ class NewPoll extends Component {
         dispatch(handleSaveQuestion(optionOne, optionTwo, authUser));
         this.setState(() => ({
             optionOne: '',
-            optionTwo: ''
+            optionTwo: '',
+            redirect: true
         }))
     }
 
 
     render () {
+
+        if(this.state.redirect) return (<Redirect to='/' />)
+
         return (
             <div>
                 <h2>Create a New Poll</h2>
