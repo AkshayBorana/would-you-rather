@@ -23,7 +23,7 @@ class App extends Component {
 
     return (
       <Router>
-        <div className="App">
+        <div className="App h-100">
           {
             authUser === null
             ? (<LoginPage />)
