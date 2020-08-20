@@ -61,7 +61,7 @@ class AnswerPoll extends Component {
                                     question.map(q => {
                                         return (
                                             <div key={q.id}>
-                                                <h3>{q.author} asks</h3>
+                                                <h4>{q.author} asks</h4>
                                                 <div>
                                                     <div>
                                                     <img className="icon" src={users[q.author].avatarURL} alt="not found">

@@ -89,7 +89,8 @@ a {
 }
 
 .answer-questions, .questions-answered {
-  width: 400px;
+  min-width: 288px;
+  max-width: 400px;
   margin: auto;
   padding: 0px;
   margin-top: 20px;

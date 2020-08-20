@@ -28,7 +28,7 @@ class App extends Component {
             authUser === null
             ? (<LoginPage />)
             : (
-              <div>
+              <div className="px-3">
                 <Nav />
                 <Switch>
                 <Route path="/" exact component={Home} />
