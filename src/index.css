@@ -21,10 +21,10 @@ code {
 
 /* LOGIN PAGE CSS---------------STARTS--------------------- */
 .login_block {
-  min-width: 320px;
+  min-width: 288px;
   margin: auto;
   width: 500px;
-  min-height: 400px;
+  height: 300px;
   border: 1px solid #d4d4d5;
   border-radius: 4px;
 }
@@ -56,6 +56,13 @@ code {
 }
 
 .login_form {
-  height: calc(100%-100px);
+  height: calc(100% - 100px);
+  display: flex;
+  align-items: center;
+}
+
+.disable_btn {
+  cursor: none;
+  opacity: 0.6;
 }
 /* LOGIN PAGE CSS---------------EBDS----------------------- */

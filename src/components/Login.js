@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loginUser } from '../actions/authUser';
+import classNames from "classnames";
 
 class LoginPage extends Component {
 
@@ -23,6 +24,7 @@ class LoginPage extends Component {
     render() {
 
         const { users } = this.props;
+        console.log(users);
         const disabled = this.state.value === '' ? true : false;
 
         return(
@@ -35,7 +37,7 @@ class LoginPage extends Component {
                         </div>
 
                         <form onSubmit={this.handleSubmit} className="login_form">
-                            <div className="px-3">
+                            <div className="px-3 w-100">
                                 <select className="d-block login_form__select mb-3" value={this.state.value} onChange={this.handleChange}>
                                     {
                                         users.map((user) => {
@@ -45,7 +47,10 @@ class LoginPage extends Component {
                                         })
                                     }
                                 </select>
-                                <button className="login_form__btn" type="submit" disabled={disabled}>Login</button>
+                                <button className={classNames("login_form__btn", {
+                                        'disable_btn': disabled
+                                      })
+                                } type="submit" disabled={disabled}>Login</button>
                             </div>
                         </form>
                     </div>
