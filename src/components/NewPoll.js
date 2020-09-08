@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { handleSaveQuestion } from '../actions/questions';
 import { connect }  from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import classNames from "classnames";
 
 class NewPoll extends Component {
 
@@ -33,31 +34,43 @@ class NewPoll extends Component {
 
     render () {
 
+        const { optionOne, optionTwo } = this.state;
+        const disable = optionOne === '' || optionTwo === '';
+
         if(this.state.redirect) return (<Redirect to='/' />)
 
         return (
-            <div>
-                <h2>Create a New Poll</h2>
-                <form onSubmit={this.handleSubmit}>
-                    <p>Complete the questions...</p>
-                    <input
-                     type="text"
-                     name="optionOne"
-                     placeholder="Enter option one..."
-                     value={this.state.optionOne}
-                     onChange={this.handleChange}
-                    />
-                    <h2>OR</h2>
-                    <input
-                     type="text"
-                     name="optionTwo"
-                     placeholder="Enter option two..."
-                     value={this.state.optionTwo}
-                     onChange={this.handleChange}
-                    />
+            <div className="new-poll mt-5">
+                <div>
+                    <h3>Create a New Poll</h3>
+                    <form onSubmit={this.handleSubmit}>
+                        <p>Complete the questions...</p>
+                        <input
+                            className="new-poll__Q"
+                            type="text"
+                            name="optionOne"
+                            placeholder="Enter option one..."
+                            value={this.state.optionOne}
+                            onChange={this.handleChange}
+                        />
+                        <strong className="my-2 d-block">OR</strong>
+                        <input
+                            className="new-poll__Q"
+                            type="text"
+                            name="optionTwo"
+                            placeholder="Enter option two..."
+                            value={this.state.optionTwo}
+                            onChange={this.handleChange}
+                        />
 
-                    <button type="submit">Submit</button>
-                </form>
+                        <button
+                            className={classNames('d-block', 'mt-5', 'new-poll__btn', {active: !disable})}
+                            disabled={disable}
+                            type="submit">
+                            Submit
+                        </button>
+                    </form>
+                </div>
             </div>
         )
     }
