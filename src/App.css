@@ -51,9 +51,21 @@ a {
 
 /*  */
 /* Home page... */
-.ques-btn{
+.ques-btn-right, .ques-btn-left{
   display: inline-block;
-  margin: 0px 10px;
+  width: 134px;
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+  background: #d4d4d5;
+}
+
+.ques-btn-left {
+  margin-right: 20px;
+}
+
+.btn-active {
+  background: white;
 }
 
 .question-list {
@@ -80,12 +92,13 @@ a {
 .user-icon {
   display: inline-block;
   height: inherit;
-  width: 150px;
+  width: 100px;
 }
 
 .question-info {
   display: inline-block;
-  width: calc( 100% - 150px );
+  width: calc( 100% - 100px );
+  border-left: 1px solid #d4d4d5;
 }
 
 .answer-questions, .questions-answered {
@@ -97,10 +110,14 @@ a {
 }
 
 .questions-card-btn {
-  border: 1px solid gray;
   padding: 5px;
   border-radius: 4px;
   cursor: pointer;
+  display: block;
+  margin: auto;
+  font-size: 14px;
+  background: #2185d0;
+  color: #fff;
 }
 
 /* Style for Navigation bar.. */

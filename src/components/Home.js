@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { loginUser } from '../actions/authUser';
 import QuestionsCard from './QuestionsCard';
-// import Nav from './Nav';
+import classNames from "classnames";
 
 class Home extends Component {
 
@@ -25,8 +25,8 @@ class Home extends Component {
             <div>
                 {/* <Nav /> */}
                 <div className="qestion">
-                    <button className="ques-btn" onClick={this.displayQuestions}>Unanswered Questions</button>
-                    <button className="ques-btn" onClick={this.displayQuestions}>Answered Questions</button>
+                    <button className={classNames('ques-btn-left', { 'btn-active': isQuestion})} onClick={this.displayQuestions}>Unanswered</button>
+                    <button className={classNames('ques-btn-right', { 'btn-active': !isQuestion})} onClick={this.displayQuestions}>Answered</button>
 
                     {
                         isQuestion ?

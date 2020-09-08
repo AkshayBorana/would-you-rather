@@ -9,15 +9,15 @@ const QuestionsCard = (props) => {
 
         return(
             <div className="question-card">
-                <h3 className="question-card-name">{question.author} asks:</h3>
+                <h4 className="question-card-name">{question.author} asks:</h4>
                 <div className="question-card-detail">
                     <div className="user-icon">
                         <img className="icon" src={users[question.author].avatarURL} alt="not found">
                         </img>
                     </div>
 
-                    <div className="question-info">
-                        <p>Would you rather</p>
+                    <div className="question-info px-2">
+                        <strong>Would you rather</strong>
                         <p>{question.optionOne.text}</p>
                         <p>or...</p>
                         <Link className="questions-card-btn"
