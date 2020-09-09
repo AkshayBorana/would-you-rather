@@ -104,37 +104,37 @@ class AnswerPoll extends Component {
                                 <div>
                                     {
                                         Result && (
-                                            <div className="results-card">
-                                                <h3 className="results-card-auth">{Result.author} aksk</h3>
+                                            <div className="results-card py-3">
+                                                <h3 className="results-card-auth">{Result.author} asks</h3>
                                                 <div>
                                                     <img className="icon" src={users[Result.author].avatarURL} alt="not found">
                                                     </img>
                                                 </div>
-                                                <div>
-                                                    <p>Results</p>
+                                                <div className="py-3">
+                                                    <strong className="mb-2">Results</strong>
                                                     <p>Would you rather</p>
                                                 <div className="result-details">
-                                                    <p>{Result.optionOne.text}</p>
-                                                    <p>No of Votes: {optionOneVotes}</p>
+                                                    <p className="mb-1">{Result.optionOne.text}</p>
+                                                    <p className="mb-1">No of Votes: {optionOneVotes}</p>
                                                     {
                                                         Result.optionOne.votes.includes(authUser) && (
-                                                            <span className='winner-text'>Your Vote</span>
+                                                            <strong className='winner-text'>Your Vote</strong>
                                                         )
                                                     }
-                                                    <p>Votes acquired: {
+                                                    <p className="mb-1">Votes acquired: {
                                                             Math.floor(((optionOneVotes / totalVotes) * 100).toFixed(2))
                                                         } %
                                                     </p>
                                                 </div>
                                                     <div className="result-details">
-                                                        <p>{Result.optionTwo.text}</p>
-                                                        <p>No of Votes: {optionTwoVotes}</p>
+                                                        <p className="mb-1">{Result.optionTwo.text}</p>
+                                                        <p className="mb-1">No of Votes: {optionTwoVotes}</p>
                                                         {
                                                             Result.optionTwo.votes.includes(authUser) && (
-                                                                <span className='winner-text'>Your Vote</span>
+                                                                <strong className='winner-text'>Your Vote</strong>
                                                             )
                                                         }
-                                                        <p>Votes acquired: {
+                                                        <p className="mb-1">Votes acquired: {
                                                             Math.floor(((optionTwoVotes / totalVotes) * 100).toFixed(2))
                                                             } %
                                                         </p>

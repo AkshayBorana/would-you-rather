@@ -192,6 +192,9 @@ a {
 .leaderboard-card-list {
   border: 1px solid gray;
   margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* New poll page... */

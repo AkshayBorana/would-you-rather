@@ -6,7 +6,7 @@ const PollWinnerCard = (props) => {
 
     return (
         <div>
-            <div>
+            <div className="py-2">
                 <img className="icon" src={topUser.avatarURL} alt="not found">
                 </img>
             </div>
