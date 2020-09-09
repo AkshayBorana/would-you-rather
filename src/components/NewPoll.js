@@ -64,7 +64,7 @@ class NewPoll extends Component {
                         />
 
                         <button
-                            className={classNames('d-block', 'mt-5', 'new-poll__btn', {active: !disable})}
+                            className={classNames('d-block', 'mt-5', 'new-poll__btn', {'active-btn': !disable})}
                             disabled={disable}
                             type="submit">
                             Submit

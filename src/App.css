@@ -124,7 +124,22 @@ a {
 
 .nav-link {
   display: inline-block;
-  padding: 0 30px;
+  padding:  10px;
+}
+
+.nav-ul {
+  width: 700px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+
+.log-out {
+  height: 40px;
+  width: 80px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 800;
 }
 
 .nav-user-name {

@@ -15,36 +15,40 @@ class Nav extends Component {
         const { user }  = this.props;
 
         return (
-            <nav className="nav">
-                <ul>
-                    <li className="nav-link">
-                        <NavLink to="/" exact activeClassName="active">
-                            Home
-                        </NavLink>
-                    </li>
-                    <li className="nav-link">
-                        <NavLink to="/add" activeClassName="active">
-                            New Poll
-                        </NavLink>
-                    </li>
-                    <li className="nav-link">
-                        <NavLink to="/leaderBoard" activeClassName="active">
-                            Loader Board
-                        </NavLink>
-                    </li>
-                    <li className="nav-link">
-                        <div>
-                            {user && (user.map(u => (
-                                <div key={u.id} className="nav-user-name">
-                                    <img className="nav-user-icon" src={u.avatarURL} alt="not found"></img>
-                                    <p className="nav-user-title">{u.name}</p>
-                                </div>
+            <nav className="nav pt-3 pb-5">
+                <ul className="nav-ul row px-0">
+                <div className="col-12 col-sm-7 order-2 order-sm-1 px-0">
+                        <li className="nav-link">
+                            <NavLink to="/" exact activeClassName="active">
+                                Home
+                            </NavLink>
+                        </li>
+                        <li className="nav-link">
+                            <NavLink to="/add" activeClassName="active">
+                                New Poll
+                            </NavLink>
+                        </li>
+                        <li className="nav-link">
+                            <NavLink to="/leaderBoard" activeClassName="active">
+                                Loader Board
+                            </NavLink>
+                        </li>
+                    </div>
+                    <div className="col-12 col-sm-5 order-1 order-sm-2 px-2">
+                        <li className="nav-link px-0">
+                            <div>
+                                {user && (user.map(u => (
+                                    <div key={u.id} className="nav-user-name float-left">
+                                        <img className="nav-user-icon" src={u.avatarURL} alt="not found"></img>
+                                        <p className="nav-user-title">{u.name}</p>
+                                    </div>
 
 
-                            )))}
-                            <button onClick={this.logout}>Logout</button>
-                        </div>
-                    </li>
+                                )))}
+                                <button className="log-out d-inline-block float-right" onClick={this.logout}>Logout</button>
+                            </div>
+                        </li>
+                    </div>
                 </ul>
             </nav>
         )
